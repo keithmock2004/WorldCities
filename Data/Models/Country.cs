@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-
 namespace WorldCities.Data.Models
 {
     public class Country
@@ -40,7 +39,5 @@ namespace WorldCities.Data.Models
         /// </summary>
         public virtual List<City> Cities { get; set; }
         #endregion
-
-
     }
 }
