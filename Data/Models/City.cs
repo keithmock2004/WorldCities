@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+
 namespace WorldCities.Data.Models
+
+
 {
     public class City
     {
@@ -31,22 +34,26 @@ namespace WorldCities.Data.Models
         /// <summary>
         /// City latitude
         /// </summary>
+        [Column(TypeName = "decimal(7,4)")]
         public decimal Lat { get; set; }
         /// <summary>
         /// City longitude
         /// </summary>
+        [Column(TypeName = "decimal(7,4)")]
         public decimal Lon { get; set; }
-        #endregion
-        /// <summary>
-        /// Country Id (foreign key)
-        /// </summary>
-        [ForeignKey("Country")]
-        public int CountryId { get; set; }
-        #region Navigation Properties
-        ///<summary>
-        /// The Countries related to this city.
-        /// </summary>
-        public virtual Country Country { get; set; }
-        #endregion
+    #endregion
+    /// <summary>
+    /// Country Id (foreign key)
+    /// </summary>
+    [ForeignKey("Country")]
+    public int CountryId { get; set; }
+    #region Navigation Properties
+/// <summary>
+/// The country related to this city.
+/// </summary>
+public virtual Country Country { get; set; }
+#endregion
+
+
     }
 }
