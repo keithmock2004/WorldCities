@@ -42,7 +42,7 @@ namespace WorldCities.Data
         int pageSize)
         {
             var count = await source.CountAsync();
-            source = await source
+            source =  source
             .Skip(pageIndex * pageSize)
             .Take(pageSize);
 
