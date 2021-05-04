@@ -25,23 +25,27 @@ namespace WorldCities.Controllers
         [HttpGet]
         // GET: api/Cities
         // GET: api/Cities/?pageIndex=0&pageSize=10
-        // GET: api/Cities/?pageIndex=0&pageSize=10&sortColumn=name&
-        // sortOrder=asc
+        // GET: api/Cities/0/10
         [HttpGet]
         [Route("{pageIndex?}/{pageSize?}")]
 
         public async Task<ActionResult<ApiResult<City>>> GetCities(
-            int pageIndex = 0,
+           int pageIndex = 0,
             int pageSize = 10,
             string sortColumn = null,
-            string sortOrder = null)
+            string sortOrder = null,
+            string filterColumn = null,
+            string filterQuery = null)
         {
             return await ApiResult<City>.CreateAsync(
             _context.Cities,
-            pageIndex, 
+            pageIndex,
             pageSize,
             sortColumn,
-            sortOrder);
+            sortOrder,
+            filterColumn,
+            filterQuery);
+
         }
 
         // GET: api/Cities/5
