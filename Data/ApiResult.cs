@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using System.Reflection;
-
+using Microsoft.AspNetCore.Mvc;
+using WorldCities.Data.Models;
 
 namespace WorldCities.Data
 {
@@ -30,6 +31,11 @@ namespace WorldCities.Data
             SortColumn = sortColumn;
             SortOrder = sortOrder;
         }
+
+        internal static Task<ActionResult<ApiResult<City>>> CreateAsync(DbSet<City> cities, int pageIndex, int pageSize, string sortColumn, string sortOrder, string filterColumn, string filterQuery)
+        {
+            throw new NotImplementedException();
+        }
         #region Methods
         /// <summary>
         /// Pages and/or sorts a IQueryable source.
@@ -53,6 +59,7 @@ namespace WorldCities.Data
         int pageSize,
         string sortColumn = null,
         string sortOrder = null)
+
         {
             var count = await source.CountAsync();
             if (!String.IsNullOrEmpty(sortColumn)
@@ -122,41 +129,42 @@ namespace WorldCities.Data
         /// Total items count
         /// </summary>
         public int TotalCount { get; private set; }
-        public int TotalPages { get; }
-
         /// <summary>
         /// Total pages count
         /// </summary>
-        /// public int TotalPages { get; private set; }
+        public int TotalPages { get; private set; }
         /// <summary>
         /// TRUE if the current page has a previous page,
         /// FALSE otherwise.
         /// </summary>
-        public bool HasPreviousPage
- {
- get
- {
- return (PageIndex > 0);
- }
- }
- /// <summary>
- /// TRUE if the current page has a next page, FALSE otherwise.
- /// </summary>
- public bool HasNextPage
- {
- get
- {
- return ((PageIndex +1) < TotalPages);
- }
- }
- /// <summary>
- /// Sorting Column name (or null if none set)
- /// </summary>
- public string SortColumn { get; set; }
- /// <summary>
- /// Sorting Order ("ASC", "DESC" or null if none set)
- /// </summary>
- public string SortOrder { get; set; }
- #endregion
- }
+        public bool HasPreviousPage {
+            get {
+                return (PageIndex > 0);
+            }
+        }
+
+        internal static Task<ActionResult<ApiResult<Country>>> CreateAsync(DbSet<Country> countries, int pageIndex, int pageSize, string sortColumn, string sortOrder, string filterColumn, string filterQuery)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// TRUE if the current page has a next page, FALSE otherwise.
+        /// </summary>
+        public bool HasNextPage {
+            get {
+                return ((PageIndex + 1) < TotalPages);
+            }
+        }
+        /// <summary>
+        /// Sorting Column name (or null if none set)
+        /// </summary>
+        public string SortColumn { get; set; }
+        /// <summary>
+        /// Sorting Order ("ASC", "DESC" or null if none set)
+        /// </summary>
+        public string SortOrder { get; set; }
+        #endregion
+    }
+
 }
