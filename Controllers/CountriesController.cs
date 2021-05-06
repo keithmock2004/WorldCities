@@ -8,8 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using WorldCities.Data;
 using WorldCities.Data.Models;
 namespace WorldCities.Controllers
+
+
 {
+    [Route("api/[controller]")]
+    [ApiController]
+
+
     public class CountriesController : Controller
+
     {
         private readonly ApplicationDbContext _context;
         public CountriesController(ApplicationDbContext context)

@@ -68,5 +68,4 @@ export class CitiesComponent {
         this.cities = new MatTableDataSource<City>(result.data);
       }, error => console.error(error));
   }
-  }
-
+}
