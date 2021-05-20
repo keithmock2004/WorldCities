@@ -56,7 +56,7 @@ export class CitiesComponent {
         : this.defaultSortOrder);
     if (this.filterQuery) {
       params = params
-        .set("filterColum", this.defaultFilterColumn)
+        .set("filterColumn", this.defaultFilterColumn)
         .set("filterQuery", this.filterQuery);
     }
 

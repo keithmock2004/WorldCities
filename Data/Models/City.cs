@@ -41,18 +41,24 @@ namespace WorldCities.Data.Models
         /// </summary>
         [Column(TypeName = "decimal(7,4)")]
         public decimal Lon { get; set; }
-    #endregion
-    /// <summary>
-    /// Country Id (foreign key)
-    /// </summary>
-    [ForeignKey("Country")]
-    public int CountryId { get; set; }
-    #region Navigation Properties
-/// <summary>
-/// The country related to this city.
-/// </summary>
-public virtual Country Country { get; set; }
-#endregion
+        #endregion
+        /// <summary>
+        /// Country Id (foreign key)
+        /// </summary>
+        [ForeignKey("Country")]
+        public int CountryId { get; set; }
+        #region Navigation Properties
+        /// <summary>
+        /// The country related to this city.
+        /// </summary>
+        /// 
+
+      
+        public virtual Country Country { get; set; }
+
+        public string Description { get; set; }
+       
+        #endregion
 
 
     }
