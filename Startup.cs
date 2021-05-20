@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -84,6 +85,8 @@ namespace WorldCities
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
+
+                spa.Options.StartupTimeout = TimeSpan.FromMinutes(5);
 
                 if (env.IsDevelopment())
                 {
