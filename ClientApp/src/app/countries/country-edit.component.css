@@ -11,3 +11,14 @@ input.ng-valid ~ .valid-feedback,
 input.ng-invalid ~ .invalid-feedback {
   display: block;
 }
+
+h1{
+    color:red;
+}
+.btn.disabled, .btn:disabled{
+
+    opacity:0.7;
+    font-size:larger;
+    color:aqua;
+    background-color:red;
+}
